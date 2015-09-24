@@ -9,8 +9,8 @@ def get_license():
 	return "BSD 3 clauses"
 
 def create(target):
-	myModule = module.Module(__file__, 'gtest', 'LIBRARY_STATIC')
-	myModule.add_src_file([
+	my_module = module.Module(__file__, 'gtest', 'LIBRARY_STATIC')
+	my_module.add_src_file([
 		'gtest/src/gtest-all.cc',
 		'gtest/src/gtest.cc',
 		'gtest/src/gtest-death-test.cc',
@@ -21,7 +21,7 @@ def create(target):
 		'gtest/src/gtest-test-part.cc',
 		'gtest/src/gtest-typed-test.cc'
 		])
-	myModule.add_header_file([
+	my_module.add_header_file([
 		'gtest/include/gtest/gtest-death-test.h',
 		'gtest/include/gtest/gtest.h',
 		'gtest/include/gtest/gtest-message.h',
@@ -33,9 +33,9 @@ def create(target):
 		'gtest/include/gtest/gtest-test-part.h',
 		'gtest/include/gtest/gtest-typed-test.h'
 		], rm_path='gtest/include/')
-	myModule.add_path(tools.get_current_path(__file__)+"/gtest")
-	myModule.add_export_path(tools.get_current_path(__file__)+"/gtest/include/")
-	return myModule
+	my_module.add_path(tools.get_current_path(__file__)+"/gtest")
+	my_module.add_export_path(tools.get_current_path(__file__)+"/gtest/include/")
+	return my_module
 
 
 
