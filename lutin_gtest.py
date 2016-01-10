@@ -28,46 +28,53 @@ def get_version():
 def create(target, module_name):
 	my_module = module.Module(__file__, module_name, get_type())
 	my_module.add_src_file([
-		'gtest/src/gtest-all.cc',
-		'gtest/src/gtest.cc',
-		'gtest/src/gtest-death-test.cc',
-		'gtest/src/gtest-filepath.cc',
-		'gtest/src/gtest_main.cc',
-		'gtest/src/gtest-port.cc',
-		'gtest/src/gtest-printers.cc',
-		'gtest/src/gtest-test-part.cc',
-		'gtest/src/gtest-typed-test.cc'
+		'googletest/googletest/src/gtest-all.cc',
+		'googletest/googletest/src/gtest.cc',
+		'googletest/googletest/src/gtest-death-test.cc',
+		'googletest/googletest/src/gtest-filepath.cc',
+		'googletest/googletest/src/gtest_main.cc',
+		'googletest/googletest/src/gtest-port.cc',
+		'googletest/googletest/src/gtest-printers.cc',
+		'googletest/googletest/src/gtest-test-part.cc',
+		'googletest/googletest/src/gtest-typed-test.cc'
 		])
 	my_module.add_header_file([
-		'gtest/include/gtest/gtest-typed-test.h',
-		'gtest/include/gtest/gtest-param-test.h',
-		'gtest/include/gtest/gtest-message.h',
-		'gtest/include/gtest/gtest-test-part.h',
-		'gtest/include/gtest/gtest.h',
-		'gtest/include/gtest/gtest-param-test.h.pump',
-		'gtest/include/gtest/gtest-printers.h',
-		'gtest/include/gtest/gtest-death-test.h',
-		'gtest/include/gtest/gtest_pred_impl.h',
-		'gtest/include/gtest/gtest_prod.h',
-		'gtest/include/gtest/gtest-spi.h'
+		'googletest/googletest/include/gtest/gtest-typed-test.h',
+		'googletest/googletest/include/gtest/gtest-param-test.h',
+		'googletest/googletest/include/gtest/gtest-message.h',
+		'googletest/googletest/include/gtest/gtest-test-part.h',
+		'googletest/googletest/include/gtest/gtest.h',
+		'googletest/googletest/include/gtest/gtest-param-test.h.pump',
+		'googletest/googletest/include/gtest/gtest-printers.h',
+		'googletest/googletest/include/gtest/gtest-death-test.h',
+		'googletest/googletest/include/gtest/gtest_pred_impl.h',
+		'googletest/googletest/include/gtest/gtest_prod.h',
+		'googletest/googletest/include/gtest/gtest-spi.h'
 		], destination_path='gtest')
 	my_module.add_header_file([
-		'gtest/include/gtest/internal/gtest-param-util-generated.h.pump',
-		'gtest/include/gtest/internal/gtest-type-util.h',
-		'gtest/include/gtest/internal/gtest-tuple.h',
-		'gtest/include/gtest/internal/gtest-param-util.h',
-		'gtest/include/gtest/internal/gtest-string.h',
-		'gtest/include/gtest/internal/gtest-linked_ptr.h',
-		'gtest/include/gtest/internal/gtest-tuple.h.pump',
-		'gtest/include/gtest/internal/gtest-param-util-generated.h',
-		'gtest/include/gtest/internal/gtest-death-test-internal.h',
-		'gtest/include/gtest/internal/gtest-port.h',
-		'gtest/include/gtest/internal/gtest-type-util.h.pump',
-		'gtest/include/gtest/internal/gtest-internal.h',
-		'gtest/include/gtest/internal/gtest-filepath.h'
+		'googletest/googletest/include/gtest/internal/gtest-internal.h',
+		'googletest/googletest/include/gtest/internal/gtest-param-util-generated.h.pump',
+		'googletest/googletest/include/gtest/internal/gtest-port.h',
+		'googletest/googletest/include/gtest/internal/gtest-tuple.h.pump',
+		'googletest/googletest/include/gtest/internal/gtest-death-test-internal.h',
+		'googletest/googletest/include/gtest/internal/gtest-linked_ptr.h',
+		'googletest/googletest/include/gtest/internal/gtest-param-util.h',
+		'googletest/googletest/include/gtest/internal/gtest-string.h',
+		'googletest/googletest/include/gtest/internal/gtest-type-util.h',
+		'googletest/googletest/include/gtest/internal/gtest-filepath.h',
+		'googletest/googletest/include/gtest/internal/gtest-param-util-generated.h',
+		'googletest/googletest/include/gtest/internal/gtest-port-arch.h',
+		'googletest/googletest/include/gtest/internal/gtest-tuple.h',
+		'googletest/googletest/include/gtest/internal/gtest-type-util.h.pump'
 		], destination_path='gtest/internal')
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "gtest"))
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "gtest/include"))
+	my_module.add_header_file([
+		'googletest/googletest/include/gtest/internal/custom/gtest-port.h',
+		'googletest/googletest/include/gtest/internal/custom/gtest-printers.h',
+		'googletest/googletest/include/gtest/internal/custom/gtest.h'
+		], destination_path='gtest/internal/custom/')
+
+	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest"))
+	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest/include"))
 	return my_module
 
 
