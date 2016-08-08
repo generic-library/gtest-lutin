@@ -72,7 +72,14 @@ def create(target, module_name):
 		'googletest/googletest/include/gtest/internal/custom/gtest-printers.h',
 		'googletest/googletest/include/gtest/internal/custom/gtest.h'
 		], destination_path='gtest/internal/custom/')
-
+	my_module.add_module_depend([
+	    'cxx',
+	    'm',
+	    'pthread',
+	    'arpa',
+	    'rpc'
+	    ])
+	
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest"))
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest/include"))
 	return my_module
