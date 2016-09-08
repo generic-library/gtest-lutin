@@ -72,7 +72,7 @@ def create(target, module_name):
 		'googletest/googletest/include/gtest/internal/custom/gtest-printers.h',
 		'googletest/googletest/include/gtest/internal/custom/gtest.h'
 		], destination_path='gtest/internal/custom/')
-	my_module.add_module_depend([
+	my_module.add_depend([
 	    'cxx',
 	    'm',
 	    'pthread',
