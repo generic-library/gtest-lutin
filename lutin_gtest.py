@@ -75,10 +75,14 @@ def create(target, module_name):
 	my_module.add_depend([
 	    'cxx',
 	    'm',
-	    'pthread',
-	    'arpa',
-	    'rpc'
+	    'pthread'
 	    ])
+	
+	if "Windows" not in target.get_type():
+		my_module.add_depend([
+		    'arpa',
+		    'rpc'
+		    ])
 	
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest"))
 	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest/include"))
