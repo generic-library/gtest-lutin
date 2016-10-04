@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import lutin.module as module
+import lutin.debug as debug
 import lutin.tools as tools
 import os
 
@@ -25,8 +25,7 @@ def get_maintainer():
 def get_version():
 	return [1,7,0]
 
-def create(target, module_name):
-	my_module = module.Module(__file__, module_name, get_type())
+def configure(target, my_module):
 	my_module.add_src_file([
 		'googletest/googletest/src/gtest-all.cc',
 		'googletest/googletest/src/gtest.cc',
@@ -84,9 +83,9 @@ def create(target, module_name):
 		    'rpc'
 		    ])
 	
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest"))
-	my_module.add_path(os.path.join(tools.get_current_path(__file__), "googletest/googletest/include"))
-	return my_module
+	my_module.add_path("googletest/googletest")
+	my_module.add_path("googletest/googletest/include")
+	return True
 
 
 
