@@ -77,7 +77,7 @@ def configure(target, my_module):
 	    'pthread'
 	    ])
 	
-	if "Windows" not in target.get_type():
+	if "linux" in target.get_type():
 		my_module.add_depend([
 		    'arpa',
 		    'rpc'
